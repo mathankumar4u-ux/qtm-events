@@ -47,11 +47,11 @@ export const events: EventType[] = [
     subtitle: "Harvest Festival",
     tamilTitle: "பொங்கல் திருநாள்",
     date: "January 14, 2026",
-    time: "10:00 AM",
-    endTime: "4:00 PM",
+    time: "2:30 PM",
+    endTime: "9:00 PM",
     location: "Brisbane",
-    venue: "Southbank Parklands",
-    address: "South Bank, Brisbane QLD 4101",
+    venue: "New Farm Park",
+    address: "1042 Brunswick Street, New Farm, QLD 4005",
     description: "Celebrate the harvest festival with traditional food, music, and cultural performances.",
     longDescription: `Join Queensland Tamil Mandram for our grand Pongal Celebration 2026!
 
@@ -80,13 +80,13 @@ Come dressed in traditional attire and be part of this vibrant celebration of Ta
       "Cultural exhibitions"
     ],
     schedule: [
-      { time: "10:00 AM", activity: "Gates Open & Welcome" },
-      { time: "10:30 AM", activity: "Traditional Pongal Cooking Ceremony" },
-      { time: "11:30 AM", activity: "Cultural Performances Begin" },
-      { time: "12:30 PM", activity: "Lunch Break - Food Stalls Open" },
-      { time: "2:00 PM", activity: "Kids Activities & Games" },
-      { time: "3:00 PM", activity: "Main Stage Performances" },
-      { time: "4:00 PM", activity: "Closing Ceremony" },
+      { time: "2:30 PM", activity: "Gates Open & Welcome" },
+      { time: "3:00 PM", activity: "Traditional Pongal Cooking Ceremony" },
+      { time: "4:00 PM", activity: "Cultural Performances Begin" },
+      { time: "5:30 PM", activity: "Dinner Break - Food Stalls Open" },
+      { time: "6:30 PM", activity: "Kids Activities & Games" },
+      { time: "7:30 PM", activity: "Main Stage Performances" },
+      { time: "9:00 PM", activity: "Closing Ceremony" },
     ],
     sponsors: [
       { name: "Air My Cart", tier: "gold", website: "https://airmycart.com" },
