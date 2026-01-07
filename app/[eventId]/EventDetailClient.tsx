@@ -74,13 +74,37 @@ function RegistrationModal({
   eventTitle: string;
 }) {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    attendees: "1",
+    requirements: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Create email body
+    const emailBody = `
+Event Registration for: ${eventTitle}
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Number of Attendees: ${formData.attendees}
+Special Requirements: ${formData.requirements || "None"}
+    `.trim();
+
+    // Open mailto link
+    const mailtoLink = `mailto:info@qtm.org.au?subject=${encodeURIComponent(`Event Registration: ${eventTitle}`)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, "_blank");
+
     setSubmitted(true);
     setTimeout(() => {
       onClose();
       setSubmitted(false);
+      setFormData({ name: "", email: "", phone: "", attendees: "1", requirements: "" });
     }, 2000);
   };
 
@@ -97,7 +121,7 @@ function RegistrationModal({
           <div className="text-center py-8">
             <CheckCircle size={64} className="text-[#1F7A5B] mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-[#8B1A1A] mb-2">Thank You!</h3>
-            <p className="text-[#222222]/70">Your registration has been submitted. We will contact you soon.</p>
+            <p className="text-[#222222]/70">Please send the email that opened in your mail client to complete registration.</p>
           </div>
         ) : (
           <>
@@ -115,6 +139,8 @@ function RegistrationModal({
                 <label className="block text-sm font-medium mb-1 text-[#222222]">Full Name *</label>
                 <input
                   required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white"
                   placeholder="Your name"
                 />
@@ -124,6 +150,8 @@ function RegistrationModal({
                 <input
                   type="email"
                   required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white"
                   placeholder="your@email.com"
                 />
@@ -133,13 +161,19 @@ function RegistrationModal({
                 <input
                   type="tel"
                   required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white"
                   placeholder="Your phone number"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 text-[#222222]">Number of Attendees</label>
-                <select className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white">
+                <select
+                  value={formData.attendees}
+                  onChange={(e) => setFormData({ ...formData, attendees: e.target.value })}
+                  className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white"
+                >
                   <option value="1">1 Person</option>
                   <option value="2">2 People</option>
                   <option value="3">3 People</option>
@@ -151,6 +185,8 @@ function RegistrationModal({
                 <label className="block text-sm font-medium mb-1 text-[#222222]">Special Requirements</label>
                 <textarea
                   rows={3}
+                  value={formData.requirements}
+                  onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
                   className="w-full px-4 py-2 border border-[#D4AF37]/30 rounded-lg focus:ring-2 focus:ring-[#8B1A1A] focus:outline-none bg-white resize-none"
                   placeholder="Any dietary requirements or accessibility needs..."
                 />
