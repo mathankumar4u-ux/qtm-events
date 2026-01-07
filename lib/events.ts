@@ -66,7 +66,7 @@ Our celebration will feature:
 - Cultural exhibitions
 
 Come dressed in traditional attire and be part of this vibrant celebration of Tamil culture!`,
-    image: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=800&h=600&fit=crop",
+    image: "/pongal_coverpage.png",
     featured: true,
     status: "upcoming",
     registrationOpen: true,
