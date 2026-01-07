@@ -46,7 +46,7 @@ export const events: EventType[] = [
     title: "Pongal Celebration",
     subtitle: "Harvest Festival",
     tamilTitle: "பொங்கல் திருநாள்",
-    date: "January 14, 2026",
+    date: "February 7, 2026",
     time: "2:30 PM",
     endTime: "9:00 PM",
     location: "Brisbane",
