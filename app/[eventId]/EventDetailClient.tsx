@@ -63,6 +63,9 @@ function Header() {
   );
 }
 
+// Web3Forms access key
+const WEB3FORMS_KEY = "8ad7b588-a0af-4e76-b9d0-0ed138312fbf";
+
 // Registration Form Modal
 function RegistrationModal({
   isOpen,
@@ -74,6 +77,8 @@ function RegistrationModal({
   eventTitle: string;
 }) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -82,30 +87,48 @@ function RegistrationModal({
     requirements: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
 
-    // Create email body
-    const emailBody = `
-Event Registration for: ${eventTitle}
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Event Registration: ${eventTitle}`,
+          from_name: "QTM Events Registration",
+          to: "info@qtm.org.au",
+          event: eventTitle,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          attendees: formData.attendees,
+          special_requirements: formData.requirements || "None",
+        }),
+      });
 
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Number of Attendees: ${formData.attendees}
-Special Requirements: ${formData.requirements || "None"}
-    `.trim();
+      const result = await response.json();
 
-    // Open mailto link
-    const mailtoLink = `mailto:info@qtm.org.au?subject=${encodeURIComponent(`Event Registration: ${eventTitle}`)}&body=${encodeURIComponent(emailBody)}`;
-    window.open(mailtoLink, "_blank");
-
-    setSubmitted(true);
-    setTimeout(() => {
-      onClose();
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", attendees: "1", requirements: "" });
-    }, 2000);
+      if (result.success) {
+        setSubmitted(true);
+        setTimeout(() => {
+          onClose();
+          setSubmitted(false);
+          setFormData({ name: "", email: "", phone: "", attendees: "1", requirements: "" });
+        }, 3000);
+      } else {
+        setError("Failed to submit registration. Please try again.");
+      }
+    } catch {
+      setError("Failed to submit registration. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -121,7 +144,7 @@ Special Requirements: ${formData.requirements || "None"}
           <div className="text-center py-8">
             <CheckCircle size={64} className="text-[#1F7A5B] mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-[#8B1A1A] mb-2">Thank You!</h3>
-            <p className="text-[#222222]/70">Please send the email that opened in your mail client to complete registration.</p>
+            <p className="text-[#222222]/70">Your registration has been submitted successfully. We will contact you soon!</p>
           </div>
         ) : (
           <>
@@ -191,11 +214,15 @@ Special Requirements: ${formData.requirements || "None"}
                   placeholder="Any dietary requirements or accessibility needs..."
                 />
               </div>
+              {error && (
+                <p className="text-red-600 text-sm text-center">{error}</p>
+              )}
               <button
                 type="submit"
-                className="w-full py-3 bg-[#8B1A1A] text-white rounded-lg font-semibold hover:bg-[#6B1515] transition-colors"
+                disabled={isSubmitting}
+                className="w-full py-3 bg-[#8B1A1A] text-white rounded-lg font-semibold hover:bg-[#6B1515] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Registration
+                {isSubmitting ? "Submitting..." : "Submit Registration"}
               </button>
             </form>
           </>

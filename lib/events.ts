@@ -100,7 +100,7 @@ Come dressed in traditional attire and be part of this vibrant celebration of Ta
       "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=300&fit=crop",
     ],
     organizer: "Queensland Tamil Mandram",
-    contactEmail: "events@qtm.org.au",
+    contactEmail: "info@qtm.org.au",
   },
   {
     id: "tamil-new-year-2026",
@@ -155,7 +155,7 @@ Join us for an evening of culture, tradition, and celebration!`,
       { name: "Chennai Silks Brisbane", tier: "gold" },
     ],
     organizer: "Queensland Tamil Mandram",
-    contactEmail: "events@qtm.org.au",
+    contactEmail: "info@qtm.org.au",
   },
 ];
 
