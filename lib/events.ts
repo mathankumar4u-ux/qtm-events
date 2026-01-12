@@ -103,6 +103,44 @@ Come dressed in traditional attire and be part of this vibrant celebration of Ta
     contactEmail: "info@qtm.org.au",
   },
   {
+    id: "iwd-2026",
+    title: "International Women's Day",
+    subtitle: "Women Empowerment Celebration",
+    tamilTitle: "சர்வதேச மகளிர் தினம்",
+    date: "March 14, 2026",
+    time: "TBA",
+    location: "Brisbane",
+    venue: "Acacia Ridge State School",
+    address: "Acacia Ridge, QLD",
+    description: "Celebrate International Women's Day with Queensland Tamil Mandram. Join us for a day of empowerment, cultural performances, and community celebration.",
+    longDescription: `Join Queensland Tamil Mandram for our International Women's Day Celebration 2026!
+
+International Women's Day is a global day celebrating the social, economic, cultural, and political achievements of women. It also marks a call to action for accelerating gender equality.
+
+Our celebration will feature:
+- Inspiring talks and presentations
+- Cultural performances
+- Recognition of women achievers in our community
+- Networking opportunities
+- Traditional food and refreshments
+
+Come celebrate and honor the women in our community!`,
+    image: "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=800&h=600&fit=crop",
+    featured: false,
+    status: "upcoming",
+    registrationOpen: true,
+    ticketPrice: "TBA",
+    highlights: [
+      "Inspirational speakers",
+      "Cultural performances",
+      "Women achievers recognition",
+      "Networking opportunities",
+      "Traditional food"
+    ],
+    organizer: "Queensland Tamil Mandram",
+    contactEmail: "info@qtm.org.au",
+  },
+  {
     id: "tamil-new-year-2026",
     title: "Tamil New Year",
     subtitle: "Puthandu Celebration",
