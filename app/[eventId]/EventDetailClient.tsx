@@ -323,13 +323,80 @@ const tierColors = {
   bronze: "bg-gradient-to-r from-amber-600 to-amber-400 text-white",
 };
 
+// Competition Registration Banner for Pongal
+function CompetitionBanner() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-gradient-to-r from-[#8B1A1A] via-[#D4AF37] to-[#8B1A1A] py-4 relative overflow-hidden"
+    >
+      {/* Animated background shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+          <div className="text-center md:text-left">
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="flex items-center justify-center md:justify-start gap-2 mb-2"
+            >
+              <span className="text-2xl">🏆</span>
+              <h3 className="text-white font-bold text-lg md:text-xl">
+                Competition Registration Open!
+              </h3>
+              <span className="text-2xl">🏆</span>
+            </motion.div>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 text-sm">
+              <span className="bg-white/20 px-3 py-1 rounded-full text-white font-medium">
+                ஊர்கூடி பொங்கல்
+              </span>
+              <span className="bg-white/20 px-3 py-1 rounded-full text-white font-medium">
+                கோலப்போட்டி
+              </span>
+              <span className="bg-white/20 px-3 py-1 rounded-full text-white font-medium">
+                Pongal Display & Tasting
+              </span>
+            </div>
+          </div>
+          <motion.a
+            href="https://tinyurl.com/QTM-Pongal2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            animate={{
+              scale: [1, 1.1, 1],
+              boxShadow: [
+                "0 0 0 0 rgba(255,255,255,0.7)",
+                "0 0 0 10px rgba(255,255,255,0)",
+                "0 0 0 0 rgba(255,255,255,0)"
+              ]
+            }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="bg-white text-[#8B1A1A] px-6 py-3 rounded-full font-bold text-lg hover:bg-[#FFF8EE] transition-colors shadow-lg flex items-center gap-2"
+          >
+            <span>Register Now</span>
+            <span className="animate-bounce">👉</span>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function EventDetailClient({ event }: { event: EventType }) {
   const [showRegistration, setShowRegistration] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
+  // Show competition banner only for Pongal 2026
+  const showCompetitionBanner = event.id === "pongal-2026";
+
   return (
     <main>
       <Header />
+
+      {/* Competition Registration Banner */}
+      {showCompetitionBanner && <CompetitionBanner />}
 
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px]">
