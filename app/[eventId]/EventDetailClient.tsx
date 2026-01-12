@@ -438,7 +438,7 @@ export default function EventDetailClient({ event }: { event: EventType }) {
       {showCompetitionBanner && <CompetitionBanner />}
 
       {/* Event Details */}
-      <section className="py-12 bg-[#FFF8EE]">
+      <section className="pt-6 pb-12 bg-[#FFF8EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
