@@ -395,9 +395,6 @@ export default function EventDetailClient({ event }: { event: EventType }) {
     <main>
       <Header />
 
-      {/* Competition Registration Banner */}
-      {showCompetitionBanner && <CompetitionBanner />}
-
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px]">
         <div className="absolute inset-0">
@@ -436,6 +433,9 @@ export default function EventDetailClient({ event }: { event: EventType }) {
           </div>
         </div>
       </section>
+
+      {/* Competition Registration Banner */}
+      {showCompetitionBanner && <CompetitionBanner />}
 
       {/* Event Details */}
       <section className="py-12 bg-[#FFF8EE]">
