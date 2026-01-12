@@ -329,7 +329,7 @@ function CompetitionBanner() {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-gradient-to-r from-[#8B1A1A] via-[#D4AF37] to-[#8B1A1A] py-4 mb-8 relative overflow-hidden"
+      className="bg-gradient-to-r from-[#8B1A1A] via-[#D4AF37] to-[#8B1A1A] py-4 mt-8 relative overflow-hidden"
     >
       {/* Animated background shimmer */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
