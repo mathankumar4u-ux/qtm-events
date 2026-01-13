@@ -16,6 +16,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "QTM Events | Queensland Tamil Mandram",
   description: "Upcoming events and celebrations by Queensland Tamil Mandram",
+  icons: {
+    icon: "/qtmlogo.png",
+    apple: "/qtmlogo.png",
+  },
 };
 
 export default function RootLayout({
