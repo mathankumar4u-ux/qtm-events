@@ -18,6 +18,8 @@ import {
   Share2,
   Facebook,
   Award,
+  Store,
+  Gift,
 } from "lucide-react";
 import { EventType } from "@/lib/events";
 
@@ -555,24 +557,76 @@ export default function EventDetailClient({ event }: { event: EventType }) {
                 </motion.div>
               )}
 
-              {/* Gallery */}
-              {event.gallery && event.gallery.length > 0 && (
+              {/* Stalls */}
+              {event.stalls && event.stalls.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="bg-white rounded-2xl p-6 shadow-lg"
                 >
-                  <h2 className="text-2xl font-bold text-[#8B1A1A] mb-4">Gallery</h2>
-                  <div className="grid grid-cols-3 gap-4">
-                    {event.gallery.map((img, index) => (
-                      <img
-                        key={index}
-                        src={img}
-                        alt={`Gallery ${index + 1}`}
-                        className="w-full aspect-square object-cover rounded-xl"
-                      />
-                    ))}
+                  <h2 className="text-2xl font-bold text-[#8B1A1A] mb-6">Food & Stalls</h2>
+                  <div className="space-y-6">
+                    {/* Food Stalls */}
+                    {event.stalls.filter(s => s.type === "Food").length > 0 && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-4">
+                          <Store size={20} className="text-[#D4AF37]" />
+                          <h3 className="font-semibold text-[#222222]">Food Stalls</h3>
+                        </div>
+                        <div className="grid gap-4">
+                          {event.stalls.filter(s => s.type === "Food").map((stall, index) => (
+                            <div
+                              key={index}
+                              className="p-4 bg-[#FFF8EE] rounded-xl border border-[#D4AF37]/20"
+                            >
+                              <h4 className="font-semibold text-[#8B1A1A] mb-2">{stall.name}</h4>
+                              <p className="text-sm text-[#222222]/70">{stall.items}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {/* Kids Stalls */}
+                    {event.stalls.filter(s => s.type === "Kids").length > 0 && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-4">
+                          <Gift size={20} className="text-[#D4AF37]" />
+                          <h3 className="font-semibold text-[#222222]">Kids Stalls</h3>
+                        </div>
+                        <div className="grid gap-4">
+                          {event.stalls.filter(s => s.type === "Kids").map((stall, index) => (
+                            <div
+                              key={index}
+                              className="p-4 bg-[#FFF8EE] rounded-xl border border-[#D4AF37]/20"
+                            >
+                              <h4 className="font-semibold text-[#8B1A1A] mb-2">{stall.name}</h4>
+                              <p className="text-sm text-[#222222]/70">{stall.items}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {/* Other Stalls */}
+                    {event.stalls.filter(s => s.type === "Other").length > 0 && (
+                      <div>
+                        <div className="flex items-center gap-2 mb-4">
+                          <Store size={20} className="text-[#D4AF37]" />
+                          <h3 className="font-semibold text-[#222222]">Other Stalls</h3>
+                        </div>
+                        <div className="grid gap-4">
+                          {event.stalls.filter(s => s.type === "Other").map((stall, index) => (
+                            <div
+                              key={index}
+                              className="p-4 bg-[#FFF8EE] rounded-xl border border-[#D4AF37]/20"
+                            >
+                              <h4 className="font-semibold text-[#8B1A1A] mb-2">{stall.name}</h4>
+                              <p className="text-sm text-[#222222]/70">{stall.items}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               )}

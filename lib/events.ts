@@ -2,13 +2,19 @@
 // EVENTS DATA - Easy to update
 // ===========================================
 // To add a new event, add an object to the events array below
-// All fields are required except: sponsors, videoUrl, gallery
+// All fields are required except: sponsors, videoUrl, gallery, stalls
 
 export interface Sponsor {
   name: string;
   logo?: string;
   website?: string;
   tier: "platinum" | "gold" | "silver" | "bronze";
+}
+
+export interface Stall {
+  name: string;
+  items: string;
+  type: "Food" | "Kids" | "Other";
 }
 
 export interface EventType {
@@ -31,6 +37,7 @@ export interface EventType {
   registrationLink?: string;
   ticketPrice?: string;
   sponsors?: Sponsor[];
+  stalls?: Stall[];
   videoUrl?: string;
   gallery?: string[];
   highlights?: string[];
@@ -93,12 +100,15 @@ Come dressed in traditional attire and be part of this vibrant celebration of Ta
       { name: "Murugan Foods Brisbane", tier: "silver" },
       { name: "Allionecart Indian Grocery", tier: "silver" },
     ],
-    videoUrl: "/Pongal_Video.mp4",
-    gallery: [
-      "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=300&fit=crop",
+    stalls: [
+      { name: "Kothu", items: "Kottu paratta, paruppu vada, ulunthu vada, dum biryani, dosa, idly", type: "Food" },
+      { name: "Samy Store", items: "Idiyappam with goat leg paya / veg korma, Idly with kudal kari or sambar & chutney, Kal dosai varieties, Parotta with salna, Egg omelette/kalaki, Chicken & mutton chukka, Mutton biriyani", type: "Food" },
+      { name: "All in One Grocery and Murugan Foods", items: "Briyani, Samosa", type: "Food" },
+      { name: "Pretty Yum Treats", items: "Real fruit ice cream, yoghurt granola bowl, natural fruit juice slushee, choc dipped frozen treats", type: "Food" },
+      { name: "Goldenchaico", items: "Hot masala chai, iced masala chai, cookies, stuffed dates, murukku, packaged masala chai blend", type: "Food" },
+      { name: "Amazinggiftsforkidz", items: "Kids gifts like remote cars, LED based toys", type: "Kids" },
     ],
+    videoUrl: "/Pongal_Video.mp4",
     organizer: "Queensland Tamil Mandram",
     contactEmail: "info@qtm.org.au",
   },
