@@ -75,8 +75,8 @@ Our celebration will feature:
 Come dressed in traditional attire and be part of this vibrant celebration of Tamil culture!`,
     image: "/pongal_coverpage.png",
     featured: true,
-    status: "upcoming",
-    registrationOpen: true,
+    status: "completed",
+    registrationOpen: false,
     ticketPrice: "Free Entry",
     highlights: [
       "Traditional Pongal cooking with clay pots",
@@ -150,61 +150,6 @@ Come celebrate and honor the women in our community!`,
       "Women achievers recognition",
       "Networking opportunities",
       "Traditional food"
-    ],
-    organizer: "Queensland Tamil Mandram",
-    contactEmail: "info@qtm.org.au",
-  },
-  {
-    id: "tamil-new-year-2026",
-    title: "Tamil New Year",
-    subtitle: "Puthandu Celebration",
-    tamilTitle: "புத்தாண்டு",
-    date: "April 14, 2026",
-    time: "5:00 PM",
-    endTime: "10:00 PM",
-    location: "Brisbane",
-    venue: "Brisbane Convention & Exhibition Centre",
-    address: "Merivale St, South Brisbane QLD 4101",
-    description: "Welcome the Tamil New Year with grand celebrations and performances.",
-    longDescription: `Celebrate the dawn of a new Tamil year with Queensland Tamil Mandram!
-
-Puthandu (Tamil New Year) marks the first day of the Tamil calendar year. It is celebrated with great joy and enthusiasm, with people wearing new clothes, preparing special dishes, and visiting temples.
-
-Our grand celebration will feature:
-- Traditional welcome ceremony
-- Classical dance performances (Bharatanatyam, Kuchipudi)
-- Live orchestra with renowned artists
-- Traditional feast (Puthandu Sadam)
-- New Year special programs
-- Lucky draws and prizes
-
-Join us for an evening of culture, tradition, and celebration!`,
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop",
-    featured: false,
-    status: "upcoming",
-    registrationOpen: true,
-    ticketPrice: "$25 per person",
-    highlights: [
-      "Grand welcome ceremony",
-      "Professional dance performances",
-      "Live orchestra",
-      "Traditional Puthandu feast",
-      "Kids entertainment",
-      "Lucky draw prizes"
-    ],
-    schedule: [
-      { time: "5:00 PM", activity: "Registration & Welcome Drinks" },
-      { time: "5:30 PM", activity: "Traditional Lamp Lighting Ceremony" },
-      { time: "6:00 PM", activity: "Cultural Performances" },
-      { time: "7:30 PM", activity: "Dinner Service" },
-      { time: "8:30 PM", activity: "Main Entertainment Program" },
-      { time: "9:30 PM", activity: "Lucky Draw & Awards" },
-      { time: "10:00 PM", activity: "Vote of Thanks & Closing" },
-    ],
-    sponsors: [
-      { name: "Tamil Cultural Foundation", tier: "platinum" },
-      { name: "South Indian Bank", tier: "gold" },
-      { name: "Chennai Silks Brisbane", tier: "gold" },
     ],
     organizer: "Queensland Tamil Mandram",
     contactEmail: "info@qtm.org.au",
