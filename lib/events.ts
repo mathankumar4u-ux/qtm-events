@@ -141,8 +141,8 @@ Our celebration will feature:
 Come celebrate and honor the women in our community!`,
     image: "https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=800&h=600&fit=crop",
     featured: false,
-    status: "upcoming",
-    registrationOpen: true,
+    status: "completed",
+    registrationOpen: false,
     ticketPrice: "TBA",
     highlights: [
       "Inspirational speakers",
